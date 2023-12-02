@@ -26,7 +26,18 @@ void Day2_1()
 
 void Day2_2()
 {
+	std::string data = ReadAll("Day2-1.txt");
 
+	auto lines = Split(data, '\n');
+
+	int sum = 0;
+
+	for (const auto& l : lines)
+	{
+		sum += MinGameValue(l);
+	}
+
+	std::cout << "Result Day 2 2 : " << sum << std::endl;
 }
 
 bool IsGamePossible(const std::string& game, int & gameIndex)
@@ -57,4 +68,32 @@ bool IsGamePossible(const std::string& game, int & gameIndex)
 	}
 
 	return true;
+}
+
+int MinGameValue(const std::string& game)
+{
+	int nbRed = 0;
+	int nbGreen = 0;
+	int nbBlue = 0;
+
+	auto tokens = Split(game, ' ');
+	if (tokens.size() < 2)
+		return 0;
+
+	for (size_t i = 2; i < tokens.size(); i += 2)
+	{
+		if (tokens.size() <= i + 1)
+			continue;
+
+		int value = std::stoi(tokens[i]);
+
+		if (tokens[i + 1][0] == 'r' && value > nbRed)
+			nbRed = value;
+		if (tokens[i + 1][0] == 'g' && value > nbGreen)
+			nbGreen = value;
+		if (tokens[i + 1][0] == 'b' && value > nbBlue)
+			nbBlue = value;
+	}
+
+	return nbRed * nbGreen * nbBlue;
 }
