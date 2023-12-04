@@ -37,10 +37,12 @@ std::vector<std::string> Split(const std::string& str, char separator)
 		}
 		else
 		{
-			strs.push_back(str.substr(index, nextIndex - index));
-			index = nextIndex + 1;
-			if (index >= str.size())
-				index = std::string::npos;
+			if (nextIndex - index >= 1)
+				strs.push_back(str.substr(index, nextIndex - index));
+
+				index = nextIndex + 1;
+				if (index >= str.size())
+					index = std::string::npos;
 		}
 
 	} while (index != std::string::npos);
