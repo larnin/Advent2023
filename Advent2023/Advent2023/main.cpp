@@ -4,8 +4,9 @@
 #include "Day2.h"
 #include "Day3.h"
 #include "Day4.h"
+#include "Day5.h"
 
-#define DAY 4
+#define DAY 5
 
 int main()
 {
@@ -20,7 +21,10 @@ int main()
 	Day3_2();
 #elif DAY == 4
 	Day4_1();
-	Day4_2();
+	Day4_2(); 
+#elif DAY == 5
+	Day5_1();
+	Day5_2();
 #endif
 
 	//wait before closing window
