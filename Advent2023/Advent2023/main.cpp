@@ -5,8 +5,9 @@
 #include "Day3.h"
 #include "Day4.h"
 #include "Day5.h"
+#include "Day6.h"
 
-#define DAY 5
+#define DAY 6
 
 int main()
 {
@@ -25,6 +26,9 @@ int main()
 #elif DAY == 5
 	Day5_1();
 	Day5_2();
+#elif DAY == 6
+	Day6_1();
+	Day6_2();
 #endif
 
 	//wait before closing window

@@ -116,7 +116,7 @@ Range ReadRange(const std::string& line)
 
 Table FlatenTables(const Table& first, const Table& second)
 {
-	
+	return {};
 }
 
 //0 1 -- 1 69
