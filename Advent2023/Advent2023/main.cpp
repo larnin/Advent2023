@@ -7,7 +7,7 @@
 #include "Day5.h"
 #include "Day6.h"
 
-#define DAY 6
+#define DAY 5
 
 int main()
 {

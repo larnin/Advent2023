@@ -36,7 +36,39 @@ void Day5_1()
 
 void Day5_2()
 {
+	std::string data = ReadAll("Day5-1.txt");
 
+	auto lines = Split(data, '\n');
+
+	auto seeds = ReadSeeds(lines[0]);
+
+	unsigned int index = 1;
+	std::vector<Table> tables;
+	while (index < lines.size())
+		tables.push_back(ReadTable(lines, index, index));
+
+	unsigned int minTarget = ~0;
+
+	for(unsigned int i = 0; i < seeds.size() / 2 ; i++)
+	{
+		unsigned int start = seeds[2ll * i];
+		unsigned int size = seeds[2ll * i + 1];
+
+		for (unsigned int j = start; j < start + size; j++)
+		{
+			unsigned int s = j;
+
+			for (const auto& t : tables)
+			{
+				s = Convert(t, s);
+			}
+
+			if (s < minTarget)
+				minTarget = s;
+		}
+	}
+
+	std::cout << "Result Day 5 2 : " << minTarget << std::endl;
 }
 
 unsigned int Convert(const Table& table, unsigned int value)
